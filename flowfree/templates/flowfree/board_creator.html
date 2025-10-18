@@ -1,0 +1,33 @@
+{% load static %}
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/style.css' %}">
+    </head>
+
+    <body>
+        <div id="box">
+            <h1>Flow Free Gameboard Creator</h1>
+
+            <table>
+                {% for board in boards %}
+                    <tr>
+                        <td>{{board.name}}</td>
+                        <td><a href='/flowfree/{{ board.id }}/edit_board/'>Edit</a></td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="2"><a href='/flowfree/new_board/'> Create new gameboard</a></td>
+                </tr>
+            </table>
+
+            <br>
+
+             <form action='/flowfree/'>
+                <button type='submit'>Return to homepage</button>
+            </form>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Flowfree - register </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/style.css' %}">
+    </head>
+    <body>
+        <div id="box">
+            <h1>Register</h1>
+
+            <form class="form-with-validation" action="/flowfree/register/" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <button class="form-submit">Submit</button>
+            </form>
+
+            <form action="/flowfree/">
+                <button type="submit">Return to homepage</button>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+{% load static %}
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Flowfree </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/style.css' %}">
+    </head>
+
+    <body>
+        <div id="box">
+            <h1>Flow Free</h1>
+
+            <div id="toast-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>
+
+            <form action='/flowfree/pick_board'>
+                <button type='submit'>Play</button>
+            </form>
+
+            <form action='/flowfree/board_creator'>
+                <button type='submit'>Go to Gameboard creator</button>
+            </form>
+
+            {% if admin == True %}
+            <form action='/admin/'>
+                <button type='submit'>Go to admin panel</button>
+            </form>
+            {% endif %}
+
+            {% if logged == False %}
+             <form action='/flowfree/login'>
+                <button type='submit'>Log in</button>
+            </form>
+
+             <form action='/flowfree/register'>
+                <button type='submit'>Register</button>
+            </form>
+
+            {% else %}
+            <form action='/flowfree/logout'>
+                <button type='submit'>Log out</button>
+            </form>
+            {% endif %}
+
+            <script src="{% static 'js/notifications.js' %}"></script>
+        </div>
+    </body>
+</html>

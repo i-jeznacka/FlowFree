@@ -1,0 +1,41 @@
+{% load static %}
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Flowfree - start game </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/style.css' %}">
+    </head>
+
+    <body>
+        <div id="box">
+            <h1>Flow Free</h1>
+
+            <h2>Continue your game</h2>
+            <table>
+                {% for board in my_boards %}
+                    <tr>
+                        <td>{{board}}</td>
+                        <td><a href='/flowfree/{{ board.id }}/play/'>Play</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <h2>Start a new game</h2>
+            <table>
+                {% for board in boards %}
+                    <tr>
+                        <td>{{board.name}}</td>
+                        <td>{{board.user.username}}</td>
+                        <td><a href='/flowfree/{{ board.id }}/new_game/'>Play</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <br>
+             <form action='/flowfree/'>
+                <button type='submit'>Return to homepage</button>
+            </form>
+        </div>
+    </body>
+</html>
